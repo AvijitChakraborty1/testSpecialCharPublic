@@ -1,0 +1,75 @@
+2023-03-27 16:55:07 +0530 INFO  [http-nio-8888-exec-5] [SchedulerDAOImpl] Total no. of in active or scheduled tasks : 0 for the project Id :149
+2023-03-27 16:55:15 +0530 INFO  [http-nio-8888-exec-10] [ProjectServiceImpl] new paths are D:/Scanroot/150
+2023-03-27 16:55:15 +0530 INFO  [http-nio-8888-exec-3] [SchedulerDAOImpl] Total no. of in active or scheduled tasks : 0 for the project Id :150
+2023-03-27 16:55:17 +0530 INFO  [http-nio-8888-exec-10] [SchedulerDAOImpl] Total no. of in active or scheduled tasks : 0 for the project Id :150
+2023-03-27 16:55:47 +0530 INFO  [http-nio-8888-exec-6] [SchedulerServiceImpl] Adding task: Project Import in the queue
+2023-03-27 16:55:47 +0530 INFO  [http-nio-8888-exec-6] [SchedulerServiceImpl] Notifying server of scheduled task: server = Core Server, ID = 1
+2023-03-27 16:55:47 +0530 INFO  [SchedulerDriver] [SchedulerDriverImpl] SchedulerDriver(1) Waiting for active task to finish
+2023-03-27 16:55:47 +0530 INFO  [TaskExecutorThread-571] [SchedulerDriverImpl] Starting task: com.palamida.datamodel.model.SchedulerTaskImpl@2ec1de0d[task ID=571,server ID=1,type=Project Import,description=Project Data Import : newimpoort11 ( 150 ) ,state=active,context=#Mon Mar 27 16:55:47 IST 2023
+resetInventoryUsage=true
+settingsForMarkFilesAsReviewedcheckFileMD5=true
+exportFileName=136-export-3-19-2023_11-18.zip
+settingsForMarkFilesAsReviewedfileNameMatch=false
+overwriteInventoryNotes=true
+settingsForAddFilesToInventorycompletePathMatch=true
+settingsForAddFilesToInventoryfileNameMatch=false
+settingsForMarkFilesAsReviewedcompletePathMatch=true
+settingsForAddFilesToInventorycheckFileMD5=false
+,parent=,message=<null>]
+2023-03-27 16:55:47 +0530 INFO  [TaskExecutorThread-571] [ProjectDataImportTasksExecutor] Started project import for project id : 150
+2023-03-27 16:55:47 +0530 ERROR [TaskExecutorThread-571] [ImporterService] Error during import into projectId: 150 : 
+java.io.EOFException: Unexpected end of ZLIB input stream
+	at java.util.zip.InflaterInputStream.fill(Unknown Source) ~[?:1.8.0_192]
+	at java.util.zip.InflaterInputStream.read(Unknown Source) ~[?:1.8.0_192]
+	at java.util.zip.ZipInputStream.read(Unknown Source) ~[?:1.8.0_192]
+	at java.io.FilterInputStream.read(Unknown Source) ~[?:1.8.0_192]
+	at com.google.common.io.ByteStreams.copy(ByteStreams.java:106) ~[guava-23.0.jar:?]
+	at com.google.common.io.ByteStreams.toByteArray(ByteStreams.java:166) ~[guava-23.0.jar:?]
+	at com.palamida.datamodel.util.FilePathUtils.unzipAndConvertToString(FilePathUtils.java:33) ~[datamodel-7.24.0-52-SNAPSHOT.jar:?]
+	at com.palamida.importer.service.ImporterService.getExportJsonString(ImporterService.java:584) ~[importer-7.24.0-52-SNAPSHOT.jar:?]
+	at com.palamida.importer.service.ImporterService.projectDataImport(ImporterService.java:535) [importer-7.24.0-52-SNAPSHOT.jar:?]
+	at com.palamida.appsec.tasks.ProjectDataImportTasksExecutor.execute(ProjectDataImportTasksExecutor.java:39) [appsec-core-7.24.0-52-SNAPSHOT.jar:?]
+	at com.palamida.scheduler.SchedulerDriverImpl$TaskExecutorRunner.run(SchedulerDriverImpl.java:351) [scheduler-7.24.0-52-SNAPSHOT.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_192]
+2023-03-27 16:55:47 +0530 ERROR [TaskExecutorThread-571] [FilePathUtils] Error deleting directory: D:\CodeInsight\tomcat\temp\export_json\150:
+org.apache.commons.io.IOExceptionList: D:\CodeInsight\tomcat\temp\export_json\150
+	at org.apache.commons.io.FileUtils.cleanDirectory(FileUtils.java:330) ~[commons-io-2.10.0.jar:2.10.0]
+	at org.apache.commons.io.FileUtils.deleteDirectory(FileUtils.java:1191) ~[commons-io-2.10.0.jar:2.10.0]
+	at com.palamida.datamodel.util.FilePathUtils.deleteDirectory(FilePathUtils.java:46) [datamodel-7.24.0-52-SNAPSHOT.jar:?]
+	at com.palamida.importer.service.ImporterService.projectDataImport(ImporterService.java:551) [importer-7.24.0-52-SNAPSHOT.jar:?]
+	at com.palamida.appsec.tasks.ProjectDataImportTasksExecutor.execute(ProjectDataImportTasksExecutor.java:39) [appsec-core-7.24.0-52-SNAPSHOT.jar:?]
+	at com.palamida.scheduler.SchedulerDriverImpl$TaskExecutorRunner.run(SchedulerDriverImpl.java:351) [scheduler-7.24.0-52-SNAPSHOT.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_192]
+Caused by: java.io.IOException: Cannot delete file: D:\CodeInsight\tomcat\temp\export_json\150\136-export-3-19-2023_11-18.zip
+	at org.apache.commons.io.FileUtils.forceDelete(FileUtils.java:1343) ~[commons-io-2.10.0.jar:2.10.0]
+	at org.apache.commons.io.FileUtils.cleanDirectory(FileUtils.java:323) ~[commons-io-2.10.0.jar:2.10.0]
+	... 6 more
+Caused by: java.nio.file.FileSystemException: D:\CodeInsight\tomcat\temp\export_json\150\136-export-3-19-2023_11-18.zip: The process cannot access the file because it is being used by another process.
+
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source) ~[?:1.8.0_192]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source) ~[?:1.8.0_192]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source) ~[?:1.8.0_192]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source) ~[?:1.8.0_192]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(Unknown Source) ~[?:1.8.0_192]
+	at java.nio.file.Files.deleteIfExists(Unknown Source) ~[?:1.8.0_192]
+	at org.apache.commons.io.file.PathUtils.deleteFile(PathUtils.java:487) ~[commons-io-2.10.0.jar:2.10.0]
+	at org.apache.commons.io.file.PathUtils.delete(PathUtils.java:392) ~[commons-io-2.10.0.jar:2.10.0]
+	at org.apache.commons.io.FileUtils.forceDelete(FileUtils.java:1340) ~[commons-io-2.10.0.jar:2.10.0]
+	at org.apache.commons.io.FileUtils.cleanDirectory(FileUtils.java:323) ~[commons-io-2.10.0.jar:2.10.0]
+	... 6 more
+2023-03-27 16:55:47 +0530 ERROR [TaskExecutorThread-571] [SchedulerDriverImpl] Error executing task: com.palamida.datamodel.model.SchedulerTaskImpl@2ec1de0d[task ID=571,server ID=1,type=Project Import,description=Project Data Import : newimpoort11 ( 150 ) ,state=active,context=#Mon Mar 27 16:55:47 IST 2023
+resetInventoryUsage=true
+settingsForMarkFilesAsReviewedcheckFileMD5=true
+exportFileName=136-export-3-19-2023_11-18.zip
+settingsForMarkFilesAsReviewedfileNameMatch=false
+overwriteInventoryNotes=true
+settingsForAddFilesToInventorycompletePathMatch=true
+settingsForAddFilesToInventoryfileNameMatch=false
+settingsForMarkFilesAsReviewedcompletePathMatch=true
+settingsForAddFilesToInventorycheckFileMD5=false
+,parent=,message=<null>]
+com.palamida.datamodel.ScheduleException: Cannot delete directory D:\CodeInsight\tomcat\temp\export_json\150
+	at com.palamida.appsec.tasks.ProjectDataImportTasksExecutor.execute(ProjectDataImportTasksExecutor.java:41) ~[appsec-core-7.24.0-52-SNAPSHOT.jar:?]
+	at com.palamida.scheduler.SchedulerDriverImpl$TaskExecutorRunner.run(SchedulerDriverImpl.java:351) [scheduler-7.24.0-52-SNAPSHOT.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_192]
+2023-03-27 16:55:47 +0530 INFO  [SchedulerDriver] [SchedulerDriverImpl] SchedulerDriver(1) Done waiting for active task to finish
